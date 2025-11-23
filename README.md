@@ -1,5 +1,5 @@
-# TopDownShooter
-TopDownShooter
+# EscapeFromDesertPlanet
+EscapeFromDesertPlanet
 
 <img width="1106" height="617" alt="image" src="https://github.com/user-attachments/assets/832ed8c7-141b-4291-97f3-724be83a8e7c" />
 
