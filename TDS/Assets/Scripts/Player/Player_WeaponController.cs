@@ -19,6 +19,7 @@ public class Player_WeaponController : MonoBehaviour
     [SerializeField] private float bulletImpactForce = 100;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float bulletSpeed;
+    [SerializeField] private Light fireEffectLight;
 
 
     [SerializeField] private Transform weaponHolder;
@@ -176,7 +177,7 @@ public class Player_WeaponController : MonoBehaviour
         UpdateWeaponUI();
 
         player.weaponVisuals.CurrentWeaponModel().fireSFX.Play();
-
+        StartCoroutine(ShowFireEffectLight());
 
         GameObject newBullet = ObjectPool.instance.GetObject(bulletPrefab,GunPoint());
 
@@ -192,6 +193,16 @@ public class Player_WeaponController : MonoBehaviour
 
         rbNewBullet.mass = REFERENCE_BULLET_SPEED / currentWeapon.weaponData.bulletSpeed;
         rbNewBullet.velocity = bulletsDirection * currentWeapon.weaponData.bulletSpeed;
+    }
+
+    private IEnumerator ShowFireEffectLight()
+    {
+        if (fireEffectLight.gameObject.activeSelf)
+            yield break;
+
+        fireEffectLight.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.05f);
+        fireEffectLight.gameObject.SetActive(false);
     }
 
     private void Reload()

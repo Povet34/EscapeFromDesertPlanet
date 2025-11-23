@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Heaven 567
   bulletDamage: 18
-  bulletSpeed: 15
+  bulletSpeed: 75
   bulletsInMagazine: 15
   magazineCapacity: 15
   totalReserveAmmo: 56
