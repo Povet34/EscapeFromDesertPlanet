@@ -26,8 +26,8 @@ MonoBehaviour:
   burstBulletsPerShot: 3
   burstFireRate: 1.5
   burstFireDelay: 0.1
-  baseSpread: 0.15
-  maxSpread: 3
+  baseSpread: 10
+  maxSpread: 100
   spreadIncreaseRate: 0.15
   weaponType: 2
   reloadSpeed: 1
