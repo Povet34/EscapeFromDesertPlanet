@@ -117,9 +117,6 @@ public class Player_AimController : MonoBehaviour
             aim.position = new Vector3(aim.position.x, transform.position.y + 1, aim.position.z);
     }
 
-
-
-
     public Transform Target()
     {
         Transform target = null;

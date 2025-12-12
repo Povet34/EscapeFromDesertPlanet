@@ -23,8 +23,10 @@ public class Player_WeaponController : MonoBehaviour
 
 
     [SerializeField] private Transform weaponHolder;
+    [SerializeField] private Light tacticalLight;
 
     [Header("Inventory")]
+
 
     [SerializeField] private int maxSlots = 2;
     [SerializeField] private List<Weapon> weaponSlots;
@@ -126,6 +128,10 @@ public class Player_WeaponController : MonoBehaviour
 
     #endregion
 
+    public void ShowTacticalLight(bool isOn)
+    {
+        tacticalLight.gameObject.SetActive(isOn);
+    }
 
     public void UpdateWeaponUI()
     {

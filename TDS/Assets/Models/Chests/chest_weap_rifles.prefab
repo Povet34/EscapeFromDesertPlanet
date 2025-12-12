@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4227012647731723086}
   - component: {fileID: 475684408323147885}
   - component: {fileID: 576133761570940576}
+  - component: {fileID: -1629398361113421258}
   m_Layer: 0
   m_Name: chest_weap_rifles
   m_TagString: Untagged
@@ -83,3 +84,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-1629398361113421258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6330386195746339727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e80930183f94f3f47b22d948d4f65957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 576133761570940576}
+  highlightMaterial: {fileID: 2100000, guid: 265df4365c4bb0740b9c026e3b52a181, type: 2}
+  defaultMaterial: {fileID: 3758952881610933197, guid: 824764e11f433ee418c8f21f88b60b42, type: 3}

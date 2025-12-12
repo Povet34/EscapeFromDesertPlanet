@@ -10,7 +10,6 @@ public class Car_Interaction : Interactable
 
     private float defaultPlayerScale;
 
-
     [Header("Exit details")]
     [SerializeField] private float exitCheckRadius = .2f;
     [SerializeField] private Transform[] exitPoints;
@@ -42,6 +41,7 @@ public class Car_Interaction : Interactable
         carController.ActivateCar(true);
 
         defaultPlayerScale = player.localScale.x;
+        weaponController.ShowTacticalLight(false);
 
         player.localScale = new Vector3(0.01f, 0.01f, 0.01f);
         player.transform.parent = transform;
@@ -57,6 +57,8 @@ public class Car_Interaction : Interactable
             return;
 
         carController.ActivateCar(false);
+
+        weaponController.ShowTacticalLight(true);
 
         player.parent = null;
         player.position = GetExitPoint();
