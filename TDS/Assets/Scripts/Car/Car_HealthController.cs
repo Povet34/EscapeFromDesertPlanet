@@ -16,8 +16,10 @@ public class Car_HealthController : MonoBehaviour, IDamagable
     [SerializeField] int explosionDamage = 350;
     [SerializeField] ParticleSystem fireFx;
     [SerializeField] ParticleSystem explosionFx;
+    [SerializeField] Transform explosionPoint;
 
     [Space]
+    [SerializeField] float explosionRadius = 3; 
     [SerializeField] float explosionDelay = 3;
     [SerializeField] float explosionForce = 7;
     [SerializeField] float explosionUpwardsModifier = 2;
@@ -26,6 +28,14 @@ public class Car_HealthController : MonoBehaviour, IDamagable
     {
         carController = GetComponent<Car_Controller>();
         currentHealth = maxHealth;
+    }
+
+    private void Update()
+    {
+        if(fireFx.gameObject.activeSelf)
+        {
+            fireFx.transform.rotation = Quaternion.identity;
+        }
     }
 
     public void UpdateCarHealthUI()
@@ -64,8 +74,7 @@ public class Car_HealthController : MonoBehaviour, IDamagable
         yield return new WaitForSeconds(delay);
         explosionFx.gameObject.SetActive(true);
 
-        float explosionRadius = 5f;
-        carController.rb.AddExplosionForce(explosionDamage, transform.position - Vector3.down + (Vector3.forward * 1.5f), explosionRadius, explosionUpwardsModifier, ForceMode.Impulse);
+        carController.rb.AddExplosionForce(explosionForce, explosionPoint.position, explosionRadius, explosionUpwardsModifier, ForceMode.Impulse);
 
         Explode();
     }
@@ -73,7 +82,7 @@ public class Car_HealthController : MonoBehaviour, IDamagable
     private void Explode()
     {
         HashSet<GameObject> unieqEntites = new HashSet<GameObject>();
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 1f);
+        Collider[] colliders = Physics.OverlapSphere(explosionPoint.position, explosionRadius);
 
         foreach (Collider collider in colliders)
         {
@@ -83,9 +92,7 @@ public class Car_HealthController : MonoBehaviour, IDamagable
                 damagable.TakeDamage(explosionDamage);
                 unieqEntites.Add(collider.gameObject);
 
-                var explosionPoint = transform.position + Vector3.forward * 1.5f;
-
-                collider.GetComponentInChildren<Rigidbody>()?.AddExplosionForce(explosionForce, explosionPoint, 5f, explosionUpwardsModifier, ForceMode.VelocityChange);
+                collider.GetComponentInChildren<Rigidbody>()?.AddExplosionForce(explosionForce, explosionPoint.position, explosionRadius, explosionUpwardsModifier, ForceMode.VelocityChange);
             }
         }
     }
