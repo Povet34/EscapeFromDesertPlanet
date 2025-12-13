@@ -7,6 +7,7 @@ public class Player_AimController : MonoBehaviour
     private PlayerControls controls;
 
     [Header("Aim Viusal - Laser")]
+    [SerializeField] private LayerMask laserLayerMask; // 로직 콜라이더 걸러내고, 보이는 메쉬들만 처리하려고
     [SerializeField] private LineRenderer aimLaser; // this component is on the waepon holder(child of a player)
     [SerializeField] private Transform aimLaserEnd; //이거 sprite로 hit normal 
 
@@ -84,7 +85,7 @@ public class Player_AimController : MonoBehaviour
 
         Vector3 endPoint = gunPoint.position + laserDirection * gunDistance;
 
-        if (Physics.Raycast(gunPoint.position, laserDirection, out RaycastHit hit, gunDistance))
+        if (Physics.Raycast(gunPoint.position, laserDirection, out RaycastHit hit, gunDistance, laserLayerMask))
         {
             endPoint = hit.point;
             laserTipLenght = 0;
