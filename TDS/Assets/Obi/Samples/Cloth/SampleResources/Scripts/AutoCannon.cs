@@ -26,7 +26,7 @@ namespace Obi.Samples
         {
             projectileXZPos = new Vector3(transform.position.x, 0.0f, transform.position.z);
             targetXZPos = new Vector3(target.position.x, 0.0f, target.position.z);
-            targetXZVel = new Vector3(targetRigidbody.velocity.x, 0.0f, targetRigidbody.velocity.z);
+            targetXZVel = new Vector3(targetRigidbody.linearVelocity.x, 0.0f, targetRigidbody.linearVelocity.z);
             transform.LookAt(targetXZPos);
         }
 
@@ -59,7 +59,7 @@ namespace Obi.Samples
                 R = Vector3.Distance(projectileXZPos, extrapolatedPos);
                 Vz = Mathf.Sqrt(G * R * R / (2.0f * (H - R * tanAlpha)));
 
-                rb.velocity = transform.TransformDirection(new Vector3(0f, tanAlpha * Vz, Vz));
+                rb.linearVelocity = transform.TransformDirection(new Vector3(0f, tanAlpha * Vz, Vz));
             }
         }
     }

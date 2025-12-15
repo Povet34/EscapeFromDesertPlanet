@@ -26,7 +26,7 @@ namespace Obi.Samples
 
                 if (rb != null)
                 {
-                    rb.velocity = ray.direction * power;
+                    rb.linearVelocity = ray.direction * power;
                 }
 
             }

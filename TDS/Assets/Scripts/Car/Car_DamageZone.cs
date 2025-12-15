@@ -20,7 +20,7 @@ public class Car_DamageZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (carController.rb.velocity.magnitude < minSpeedToDamage)
+        if (carController.rb.linearVelocity.magnitude < minSpeedToDamage)
             return;
 
         IDamagable damagable = other.GetComponent<IDamagable>();
