@@ -37,6 +37,8 @@ public class Player_AimController : MonoBehaviour
     {
         player = GetComponent<Player>();
         AssignInputEvents();
+
+        Cursor.visible = false;
     }
     private void Update()
     {
@@ -65,6 +67,7 @@ public class Player_AimController : MonoBehaviour
     public void EnableAimLaer(bool enable) => aimLaser.enabled = enable;
     private void UpdateAimVisuals()
     {
+        aim.transform.rotation = Quaternion.LookRotation(Camera.main.transform.forward);
         aimLaser.enabled = player.weapon.WeaponReady();
 
         if (aimLaser.enabled == false)
