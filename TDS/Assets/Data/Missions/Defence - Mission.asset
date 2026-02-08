@@ -19,9 +19,7 @@ MonoBehaviour:
   defenceDuration: 120
   waveCooldown: 15
   amountOfRespawnPoints: 2
-  respawnPoints:
-  - {fileID: 0}
-  - {fileID: 0}
+  respawnPoints: []
   enemiesPerWave: 4
   possibleEnemies:
   - {fileID: 4600353098732157086, guid: e7bbda066fb92904f83283ac6b6e154f, type: 3}
