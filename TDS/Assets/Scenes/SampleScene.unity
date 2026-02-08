@@ -2229,7 +2229,7 @@ Transform:
   m_GameObject: {fileID: 147014125}
   serializedVersion: 2
   m_LocalRotation: {x: 0.47372416, y: 0.43839106, z: -0.5538206, w: -0.5260052}
-  m_LocalPosition: {x: -0.2622, y: 0.1382, z: 0.1027}
+  m_LocalPosition: {x: -0.278, y: -0.005, z: 0.022}
   m_LocalScale: {x: 0.10000002, y: 0.099999964, z: 0.10000003}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5165,13 +5165,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345179487}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.47372416, y: 0.43839106, z: -0.5538206, w: -0.5260052}
-  m_LocalPosition: {x: -0.246, y: 0.112, z: 0.103}
+  m_LocalRotation: {x: 0.34784904, y: 0.5604809, z: 0.63794935, w: 0.3973447}
+  m_LocalPosition: {x: -0.199, y: 0.0722, z: -0.0217}
   m_LocalScale: {x: 0.10000002, y: 0.099999964, z: 0.10000003}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 819841305}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -26.02, y: 81.7, z: 93.57}
 --- !u!1 &349205325
 GameObject:
   m_ObjectHideFlags: 0
@@ -12787,7 +12787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 2
   equipAnimationType: 1
-  holdType: 1
+  holdType: 3
   gunPoint: {fileID: 1396551567}
   holdPoint: {fileID: 345179488}
   fireSFX: {fileID: 842253127}

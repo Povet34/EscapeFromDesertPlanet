@@ -12,7 +12,7 @@ public class Player_WeaponVisuals : MonoBehaviour
 
 
 
-    [Header("Rig ")]
+    [Header("Rig")]
     [SerializeField] private float rigWeightIncreaseRate;
     private bool shouldIncrease_RigWeight;
     private Rig rig;
