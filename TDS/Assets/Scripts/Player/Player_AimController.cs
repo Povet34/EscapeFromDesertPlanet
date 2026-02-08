@@ -165,6 +165,8 @@ public class Player_AimController : MonoBehaviour
             return;
 
         cameraTarget.position = Vector3.Lerp(cameraTarget.position, DesieredCameraPosition(), cameraSensetivity * Time.deltaTime);
+
+
     }
 
     private Vector3 DesieredCameraPosition()
