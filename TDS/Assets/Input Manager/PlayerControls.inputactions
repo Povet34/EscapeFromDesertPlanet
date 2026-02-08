@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "PlayerControls",
     "maps": [
         {
@@ -9,7 +10,7 @@
                     "name": "Fire",
                     "type": "Button",
                     "id": "8c5b8cee-af57-4c74-bf87-3e96823def6e",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -136,6 +137,15 @@
                     "type": "Button",
                     "id": "b93a2be4-711c-4e1a-9dc5-a0cc8d7fd558",
                     "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PreciseAim",
+                    "type": "Button",
+                    "id": "49df08e6-b49b-469c-a5cc-fb72a47611ab",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -348,6 +358,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "UI Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3b1e9af6-65b2-4fb6-8f8d-bb47b6353aee",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PreciseAim",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -52,7 +52,11 @@ public class CameraManager : MonoBehaviour
             Mathf.Lerp(currentDistnace, targetCameraDistance, distanceChangeRate * Time.deltaTime);
     }
 
-    public void ChangeCameraDistance(float distance) => targetCameraDistance = distance;
+    public void ChangeCameraDistance(float distance, float newChangeRate = 0.25f)
+    {
+        targetCameraDistance = distance;
+        distanceChangeRate = newChangeRate;
+    }
 
     public void ChangeCameraTarget(Transform target,float cameraDistance = 10,float newLookAheadTime = 0)
     {

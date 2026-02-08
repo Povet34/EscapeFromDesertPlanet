@@ -96,7 +96,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""name"": ""Fire"",
                     ""type"": ""Button"",
                     ""id"": ""8c5b8cee-af57-4c74-bf87-3e96823def6e"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -223,6 +223,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""type"": ""Button"",
                     ""id"": ""b93a2be4-711c-4e1a-9dc5-a0cc8d7fd558"",
                     ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PreciseAim"",
+                    ""type"": ""Button"",
+                    ""id"": ""49df08e6-b49b-469c-a5cc-fb72a47611ab"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -437,6 +446,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""UI Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3b1e9af6-65b2-4fb6-8f8d-bb47b6353aee"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PreciseAim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -600,6 +620,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Character_Interaction = m_Character.FindAction("Interaction", throwIfNotFound: true);
         m_Character_UIMissionToolTipSwitch = m_Character.FindAction("UI Mission ToolTip Switch", throwIfNotFound: true);
         m_Character_UIPause = m_Character.FindAction("UI Pause", throwIfNotFound: true);
+        m_Character_PreciseAim = m_Character.FindAction("PreciseAim", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_UIPause = m_UI.FindAction("UI Pause", throwIfNotFound: true);
@@ -705,6 +726,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Character_Interaction;
     private readonly InputAction m_Character_UIMissionToolTipSwitch;
     private readonly InputAction m_Character_UIPause;
+    private readonly InputAction m_Character_PreciseAim;
     /// <summary>
     /// Provides access to input actions defined in input action map "Character ".
     /// </summary>
@@ -777,6 +799,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @UIPause => m_Wrapper.m_Character_UIPause;
         /// <summary>
+        /// Provides access to the underlying input action "Character/PreciseAim".
+        /// </summary>
+        public InputAction @PreciseAim => m_Wrapper.m_Character_PreciseAim;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_Character; }
@@ -847,6 +873,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @UIPause.started += instance.OnUIPause;
             @UIPause.performed += instance.OnUIPause;
             @UIPause.canceled += instance.OnUIPause;
+            @PreciseAim.started += instance.OnPreciseAim;
+            @PreciseAim.performed += instance.OnPreciseAim;
+            @PreciseAim.canceled += instance.OnPreciseAim;
         }
 
         /// <summary>
@@ -903,6 +932,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @UIPause.started -= instance.OnUIPause;
             @UIPause.performed -= instance.OnUIPause;
             @UIPause.canceled -= instance.OnUIPause;
+            @PreciseAim.started -= instance.OnPreciseAim;
+            @PreciseAim.performed -= instance.OnPreciseAim;
+            @PreciseAim.canceled -= instance.OnPreciseAim;
         }
 
         /// <summary>
@@ -1262,6 +1294,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnUIPause(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "PreciseAim" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPreciseAim(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
